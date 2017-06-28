@@ -80,6 +80,8 @@ We said earlier that relational databases are all about tables, so lets create s
 - [ ] Open up `psql` to enter Postgres's command line. You can quit using `\q`.
 - [ ] Look up the syntax for creating a database, create one called `students`, and connect to it by using `\c students`
   - Pro tip: in SQL all statements must end in a `;`. If your statement is not running, you're most likely missing one of these.
+
+* ANSWER: ```CREATE DATABASE students;```
 - [ ] Look up the syntax for creating a table in SQL.
 - [ ] You're going to create a table called `students` with columns `id`, `first_name`, `last_name`, `date_of_birth`, `gender` and `town_of_origin`. You should use the type `SERIAL` for `id` but for the others, look up the postgres docs ([simplified](https://www.techonthenet.com/postgresql/datatypes.php) | [advanced](https://www.postgresql.org/docs/9.5/static/datatype.html)) and choose an appropriate data type for each column. 
   - We want each student in our table to have an ID because it's often useful to have something that *we*, as the creators of apps can use to uniquely identify every single row in our table, and will *never* have a reason to change.
