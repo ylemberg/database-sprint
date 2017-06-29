@@ -159,6 +159,7 @@ You may or may not have noticed one student, `Anakin Skywalker`. Contrary to wha
     - If it threw an error at you that contained the phrase `UNIQUE CONSTRAINT`, you're ahead of the game. You can read through the rest of the `constraints` section but you probably already know this.
 - Look up [unique constraints](https://www.postgresql.org/docs/current/static/ddl-constraints.html) in the Postgres docs. 
 - [ ] Destroy your students table (`drop table students`), and create it again, this time with a unique constraint on the ID column. Reinsert the student data into it using your `scripts/insertStudents.sql` script.
+* ANSWER: ```CREATE TABLE students (id serial unique, first_name varchar(50), last_name varchar(50), date_of_birth date, gender char(1), town_of_origin varchar(50));```
 - [ ] Re-insert the student data using `scripts/insertStudents.sql`, like you did earlier
 - [ ] Try to insert a student with a duplicate ID again. Verify that now, you get an error telling you that a student with that ID already exists. If you don't get an error, your constraint isn't set up correctly. If you did get an error, congrats! You've just created your first constraint!
 
@@ -171,12 +172,14 @@ You may or may not have noticed one student, `Anakin Skywalker`. Contrary to wha
 - To help you avoid these problems, you can specify that any column not allow `NULL` values by using a not-null constraint. 
 - [ ] Look up [not-null constraints](https://www.postgresql.org/docs/current/static/ddl-constraints.html) in the Postgres docs.
 - [ ] Destroy your students table (`drop table students`), and create it again, this time with a unique constraint and a not-null constraint on the ID column. Reinsert the student data into it using your `scripts/insertStudents.sql` script.
+* ANSWER: ```CREATE TABLE students (id serial unique not null, first_name varchar(50), last_name varchar(50), date_of_birth date, gender char(1), town_of_origin varchar(50));```
 - [ ] Try to insert a student with an explicitly `NULL` student ID again. Verify that you get an error. If you don't, your constraint isn't set up correctly.
 
 > ### Primary Keys
 - Very often, you'll have one particular column in a table (in this case, our `id` column in the `students` table) that is the primary identifier for rows in that table. Such an ID must never be null, and must always be unique. Most databases provide a `primary key` constraint for this purpose. A primary key constraint is just a unique constraint + a not-null constraint.
 - [ ] Look up the [primary key](https://www.postgresql.org/docs/current/static/ddl-constraints.html) documentation in Postgres and verify this for yourself.
 - Going forward, you should probably just use a `primary key` constraint, but its important for you to understand exactly what that is =)
+* ANSWER: ```CREATE TABLE students (id serial primary key, first_name varchar(50), last_name varchar(50), date_of_birth date, gender char(1), town_of_origin varchar(50));```
 
 #### Joins
 
