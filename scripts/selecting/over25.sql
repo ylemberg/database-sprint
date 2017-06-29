@@ -1,1 +1,1 @@
--- Your SQL here
+SELECT * FROM students WHERE EXTRACT(year from age(current_date, date_of_birth))>25;

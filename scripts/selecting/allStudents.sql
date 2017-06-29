@@ -1,1 +1,1 @@
--- Your SQL here
+SELECT * FROM STUDENTS;
