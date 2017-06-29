@@ -97,6 +97,7 @@ We said earlier that relational databases are all about tables, so lets create s
 
 #### Inserting Data
 - [ ] Look up the syntax to insert data into a table and insert your own names, genders and date_of_births into your students table. Do not insert an `id` for yourself: that will happen automatically.
+* ANSWER: ```insert into students (first_name, last_name, gender, town_of_origin) values ('Yuriy', 'Lemberg', 'M', 'Los Angeles');```
 - Look at the student data in in the file `seeds/insertStudents.sql`. We are going to change this file so that each line is an `insert` SQL statement. Then we're going to run the entire file using some `psql` magic so save you having to manually insert all of them. 
 - [ ] In `seeds/insertStudents.sql`, change each line to be a valid `insert` statement that will insert the student data into the table you just created. Use your sublime shortcuts to save time! We'll actually run this file through `psql` in the next step.
   - Writing lots of SQL in the psql CLI can be painful. It's generally much easier to write a `.sql` file containing the commands you want to run. You can then pipe these commands into psql by using, for example, `psql -d students -f ./seeds/insertStudents.sql`. `-d students` tells psql to connect to the `students` database, and `-f ./seeds/insertStudents.sql` tells it to run the commands in `seeds/insertStudents.sql` as though you typed them in. 
