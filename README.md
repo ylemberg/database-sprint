@@ -76,14 +76,15 @@ A quick note before we get started: throughout this sprint you may get stuck on 
 ### Basic Requirements
 
 #### Creating Tables
-We said earlier that relational databases are all about tables, so lets create some tables. A collection of tables and their associated rules in a database is called a *schema*. Let's pretend that we're creating a schema for the students at Code Chrysalis, past, present and future. For now, we want to store the name, date of birth, gender and town of origin for each student. For now, lets do this in one table. 
+We said earlier that relational databases are all about tables, so lets create some tables. A collection of tables and their associated rules in a database is called a *schema*. Let's pretend that we're creating a schema for the students at Code Chrysalis, past, present and future. For now, we want to store the name, date of birth, gender and town of origin for each student. For now, lets do this in one table.
 - [ ] Open up `psql` to enter Postgres's command line. You can quit using `\q`.
 - [ ] Look up the syntax for creating a database, create one called `students`, and connect to it by using `\c students`
   - Pro tip: in SQL all statements must end in a `;`. If your statement is not running, you're most likely missing one of these.
 
 * ANSWER: ```CREATE DATABASE students;```
 - [ ] Look up the syntax for creating a table in SQL.
-- [ ] You're going to create a table called `students` with columns `id`, `first_name`, `last_name`, `date_of_birth`, `gender` and `town_of_origin`. You should use the type `SERIAL` for `id` but for the others, look up the postgres docs ([simplified](https://www.techonthenet.com/postgresql/datatypes.php) | [advanced](https://www.postgresql.org/docs/9.5/static/datatype.html)) and choose an appropriate data type for each column. 
+- [ ] You're going to create a table called `students` with columns `id`, `first_name`, `last_name`, `date_of_birth`, `gender` and `town_of_origin`. You should use the type `SERIAL` for `id` but for the others, look up the postgres docs ([simplified](https://www.techonthenet.com/postgresql/datatypes.php) | [advanced](https://www.postgresql.org/docs/9.5/static/datatype.html)) and choose an appropriate data type for each column.
+* ANSWER: ```CREATE TABLE students (id serial primary key, first_name varchar(50), last_name varchar(50), date_of_birth date, gender char(1), town_of_origin varchar(50));```
   - We want each student in our table to have an ID because it's often useful to have something that *we*, as the creators of apps can use to uniquely identify every single row in our table, and will *never* have a reason to change.
   - For this purpose, we often use an auto-incrementing integer as an ID whenever we create a table. This is what the type `SERIAL` does.
 - [ ] Create the table
